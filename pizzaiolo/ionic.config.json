@@ -1,0 +1,8 @@
+{
+  "name": "pizzaiolo",
+  "app_id": "8e1bb7a1",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
