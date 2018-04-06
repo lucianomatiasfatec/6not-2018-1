@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ProdutoService } from './../../services/produto';
 
-
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
@@ -23,14 +22,12 @@ export class HomePage implements OnInit {
   }
 
   ngOnInit() {
+    
     this.ps.listarProdutos().subscribe(
-      function(produtos) {
-        this.produtos = produtos;
-      },
-      function(erro) {
-        console.log(erro);
-      }
+      dados => this.produtos = dados,
+      erro => console.log(erro)
     );
+    
   }
 
 }
