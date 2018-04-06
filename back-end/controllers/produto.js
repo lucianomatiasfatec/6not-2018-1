@@ -33,8 +33,24 @@ module.exports = function() {
 
    controller = {};
 
+   // Retorna todos os objetos da coleção
    controller.listar = function(req, res) {
       res.json(produtos).end();
+   }
+
+   // Retorna um único objeto da coleção
+   controller.obterUm = function(req, res) {
+      var id = req.params.id;
+      var encontrado = produtos.find(function(p) {
+         return p.codigo == id;
+      });
+
+      if(encontrado) {
+         res.json(encontrado).end();
+      }
+      else {
+         res.status(404).end();
+      }
    }
 
    return controller;
