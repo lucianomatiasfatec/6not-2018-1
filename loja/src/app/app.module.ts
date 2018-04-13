@@ -11,12 +11,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HttpClientModule } from '@angular/common/http'
 import { ProdutoService } from './../services/produto';
+import { ItemDetailPage } from '../pages/item-detail/item-detail';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    ItemDetailPage
   ],
   imports: [
     BrowserModule,
@@ -27,7 +29,8 @@ import { ProdutoService } from './../services/produto';
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    ItemDetailPage
   ],
   providers: [
     StatusBar,

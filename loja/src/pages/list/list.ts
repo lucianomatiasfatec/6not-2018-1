@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ModalController } from 'ionic-angular';
+import { ItemDetailPage } from '../item-detail/item-detail';
 
 @Component({
   selector: 'page-list',
@@ -10,7 +11,7 @@ export class ListPage {
   icons: string[];
   items: Array<{title: string, note: string, icon: string}>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = navParams.get('item');
 
@@ -32,6 +33,23 @@ export class ListPage {
     // That's right, we're pushing to ourselves!
     this.navCtrl.push(ListPage, {
       item: item
+    });
+  }
+
+  modalItemDetail(event, item) {
+    console.log(item);
+    let itemModal = this.modalCtrl.create(ItemDetailPage,{
+      itemIcon: item.icon,
+      itemTitle: item.title,
+      itemNote: item.note
+    });
+    itemModal.present();
+  }
+
+  goToItemDetail(title, icon){
+    this.navCtrl.push(ItemDetailPage, {
+      itemIcon: icon,
+      itemTitle: title
     });
   }
 }
