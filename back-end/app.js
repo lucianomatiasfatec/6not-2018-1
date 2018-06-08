@@ -27,6 +27,9 @@ app.use('/users', usersRouter);
 var produto = require('./routes/produto');
 app.use('/produto', produto);
 
+var contato = require('./routes/contato');
+app.use('/contato', contato)
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
