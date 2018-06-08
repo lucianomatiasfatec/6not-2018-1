@@ -10,15 +10,18 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HttpClientModule } from '@angular/common/http'
+import { ContatoService } from './../services/contato';
 import { ProdutoService } from './../services/produto';
 import { ItemDetailPage } from '../pages/item-detail/item-detail';
+import { ContatoPage } from '../pages/contato/contato'; 
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     ListPage,
-    ItemDetailPage
+    ItemDetailPage,
+    ContatoPage
   ],
   imports: [
     BrowserModule,
@@ -30,11 +33,13 @@ import { ItemDetailPage } from '../pages/item-detail/item-detail';
     MyApp,
     HomePage,
     ListPage,
-    ItemDetailPage
+    ItemDetailPage,
+    ContatoPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    ContatoService,
     ProdutoService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
