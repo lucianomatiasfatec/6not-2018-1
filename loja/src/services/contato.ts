@@ -16,13 +16,15 @@ export class ContatoService {
     registrar(data) {
         this._headers = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
         return new Promise((resolve, reject) => {
-            this.http.put('http://localhost:3000/contato/registrar', JSON.stringify(data), this._headers)            
+            this.http.put('http://localhost:3000/contato/registrar', JSON.stringify(data), this._headers)                     
             .subscribe(
-                data =>{
-                    console.log(data);
+                res =>{
+                    resolve(res);
                 },  
-                err => { console.log(err) }                
-            );
+                err => {
+                    reject(err) 
+                }                
+            );            
         });
     }
 }

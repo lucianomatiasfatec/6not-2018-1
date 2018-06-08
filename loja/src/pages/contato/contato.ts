@@ -44,11 +44,11 @@ export class ContatoPage {
       this.formData.email = this.data.email;
       this.formData.comment = this.data.comment;
       this.formData.registrar(this.data)
-          .then((data) => {
-              console.log(data);                
-              this.toast('Contato registrado com sucesso.', '2000', 'top', 'success');
-              this.navCtrl.pop();
-          });
+        .then((res) => {
+          console.log(res);                
+          this.toast('Contato registrado com sucesso.', '2000', 'top', 'success');
+          //this.navCtrl.pop();
+        });       
     }
 
   }
